@@ -45,12 +45,12 @@ Welcome to my AwesomeWM configuration files!
 
 This is my personal collection of configuration files.
 
-You might be here for looking my AwesomeWM configuration files? or looking for **Linux Rice** reference?
+You might be here looking for my AwesomeWM configuration files or looking for **Linux Rice** reference?
 
-feel free to steal anything from here but don't forget to give me **credits** :)
+Feel free to steal anything from here but don't forget to give me **credits** :)
 
-AwesomeWM is the most powerful and highly configurable, next generation framework window manager for X,
-Although it takes time and effort to configure it, but I'm very satisfied with this aesthetic result.
+AwesomeWM is the most powerful and highly configurable next-generation framework window manager for X.
+Although it takes time and effort to configure it, I am very satisfied with this aesthetic result.
 
 <!-- INFORMATION -->
 
@@ -70,36 +70,38 @@ Here are some details about my setup:
 AwesomeWM Modules:
 
 - **[bling](https://github.com/blingcorp/bling)**
-  - Adds new layouts, modules, and widgets that try to primarily focus on window management
+  - Adds new layouts, modules, and widgets that try to focus on window management primarily
 - **[color](https://github.com/andOrlando/color)**
   - Clean and efficient api for color conversion in lua
 - **[layout-machi](https://github.com/xinhaoyuan/layout-machi)**
   - Manual layout for Awesome with an interactive editor
-- **[UPower Battery Widget](https://github.com/Aire-One/awesome-battery_widget)**
+- **[UPower](https://github.com/Aire-One/awesome-battery_widget)**
   - A UPowerGlib based battery widget for the Awesome WM
 
 Main Features:
 
 - **Eye-catching Colorscheme**
 - **MacOS like window decorations**
-- **Dashboard**
-- **Info Center**
-- **Notification Center**
+- **Dashboard Panel**
+- **Info Center Panel**
+- **Notification Center Panel**
 - **Bottom Panel**
 - **Word Clock Lockscreen**
 - **Minimalist Exit Screen**
 - **Music Player**
 - **App Launcher**
 - **Github Activity Previews**
-- **Brightness / Volume OSD**
+- **Brightness / Volume OSDs**
 - **LayoutList PopUP**
 - **Battery Indicator**
 - **Wifi Indicator**
-- **Calendar**
-- **Weather**
+- **Calendar Widget**
+- **Weather Widget**
+- **Quick Settings Widget**
+- **Hardware Monitor Widget**
 - **Animated Workspace Indicator**
 - **Beautiful Naughty Notification**
-- **Main Menu**
+- **Right-Click Main Menu**
 
 <br>
 
@@ -130,7 +132,7 @@ paru -S awesome-git
 ```sh
 paru -Sy picom-git wezterm rofi acpi acpid acpi_call upower lxappearance-gtk3 \
 jq inotify-tools polkit-gnome xdotool xclip gpick ffmpeg blueman redshift \
-pipewire pipewire-alsa pipewire-pulse pamixer brightnessctl feh scrot \
+pipewire pipewire-alsa pipewire-pulse pamixer brightnessctl feh maim \
 mpv mpd mpc mpdris2 python-mutagen ncmpcpp playerctl --needed
 ```
 
@@ -162,6 +164,21 @@ cp -r config/* ~/.config/
 
 > Install a few fonts (mainly icon fonts) in order for text and icons to be rendered properly.
 
+Necessary fonts:
+
+- **Roboto** - [here](https://fonts.google.com/specimen/Roboto)
+- **Material Design Icons** - [here](https://github.com/google/material-design-icons)
+- **Icomoon** - [here](https://www.dropbox.com/s/hrkub2yo9iapljz/icomoon.zip?dl=0)
+
+Optional fonts:
+
+- **My custom Iosevka build(Aesthetic Iosevka)** - [here](https://github.com/rxyhn/dotfiles/tree/main/misc/fonts/Aesthetic%20Iosevka)
+- **Azuki Font** - [here](https://www.freejapanesefont.com/azuki-font-あずきフォント)
+
+Once you download them and unpack them, place them into `~/.fonts` or `~/.local/share/fonts`.
+
+Or you can find the required fonts inside the `misc/fonts` folder of this repository.
+
 ```sh
 cp -r misc/fonts/* ~/.fonts/
 # or to ~/.local/share/fonts
@@ -171,7 +188,7 @@ cp -r misc/fonts/* ~/.local/share/fonts/
 And run this command for your system to detect the newly installed fonts.
 
 ```sh
-fc-cache -v
+fc-cache -fv
 ```
 
 > Finally, now you can login with AwesomeWM
@@ -208,7 +225,7 @@ Setup:
 2. copy config file
 
    ```sh
-   cp misc/vscode/User/settings.json ~/.config/Code/User
+   cp misc/themes/vscode/User/settings.json ~/.config/Code/User
 
    ```
 
@@ -244,8 +261,8 @@ Setup:
 
 1. Copy the themes to the themes folders
    ```sh
-   sudo cp -rf misc/themes/Aesthetic-Night/* /usr/share/themes
-   cp -rf misc/themes/Aesthetic-Night-GTK4/* ~/.config/gtk-4.0
+   sudo cp -rf misc/themes/gtk/Aesthetic-Night/* /usr/share/themes
+   cp -rf misc/themes/gtk/Aesthetic-Night-GTK4/* ~/.config/gtk-4.0
    ```
 2. Add this line on `~/.config/gtk-3.0/settings.ini` for left controls
    ```sh
@@ -296,11 +313,11 @@ cp -rf misc/themes/kvantum ~/.themes/
 
 :snowman_with_snow: ‎ <samp>Aesthetic Firefox</samp>
 
-setup:
+Setup:
 
 1. Go to `about:config` in Firefox.
 2. Search for `toolkit.legacyUserProfileCustomizations.stylesheets` and set it to `true`.
-3. move the contents from [`misc/firefox`](misc/firefox) to `$HOME/.mozilla/firefox/xxxxxxxx.default-release/chrome`.
+3. move the contents from [`misc/themes/firefox`](misc/themes/firefox) to `$HOME/.mozilla/firefox/xxxxxxxx.default-release/chrome`.
 
 </details>
 
@@ -321,15 +338,48 @@ Setup:
   Copy the discord folder to the powercord themes folder
 
   ```sh
-  cp -rf misc/discord %THE DIRECTORY WHICH POWERCORD IS INSTALLED%/powercord/src/Powercord/themes/
+  cp -rf misc/themes/discord /PATH/TO/DIRECTORY/WHICH/POWERCORD/IS/INSTALLED/src/Powercord/themes/
   ```
 
 - Betterdiscord
-  Copy the discord folder to the betterdiscord themes folder
-  ```sh
-  cp -rf misc/discord ~/.config/BetterDiscord/themes
-  ```
 
+  Copy the discord css to the betterdiscord themes folder
+
+  ```sh
+  cp misc/themes/discord/AestheticNight.theme.css ~/.config/BetterDiscord/themes/
+  ```
+   
+> :warning: Using 3rd Party Clients are against Discord Terms and Service
+   
+</details>  
+    
+<details>
+<summary><b>Telegram Theme</b></summary>
+<br>
+
+<a href="#--------">
+   <img src="https://user-images.githubusercontent.com/65948476/180603733-bf41913f-f816-425d-9c4e-653a68b2c000.png" width="500px">
+</a>
+
+:telephone_receiver: <samp>Aesthetic Telegram Theme</samp>
+   
+Setup:
+
+   - First Method
+   
+      1. Go to: https://t.me/addtheme/aesthetic_night
+   
+      2. Open the link with your Telegram client of choice
+   
+      3. Apply the theme
+   
+   - Second Method
+   
+      1. Open Telegram go to ``Settings>Chat Settings>3DotMenu>Create new theme>IMPORT EXISTING THEME`` 
+   
+      2. Locate the theme ``misc/telegram/Aesthetic-Night.tdesktop-theme``
+   
+> :warning: This theme will only work on **Telegram Desktop** this won't on ``MacOS, Android, and iOS``
 </details>
 
 <details>
@@ -359,9 +409,9 @@ EndSection
 
 Introducing the Aesthetic Night colorscheme!
 
-Beautiful and elegant color scheme, perfect for programmers who live in the middle of the night.
+Beautiful and elegant color schemes are perfect for programmers who live in the middle of the night.
 
-With the neat color combination that it can keep the eyes from getting tired! so you can keep writing code and continue all your work all night!
+The nearest color combination that it can keep the eyes from getting tired! So you can keep writing code and continue all your work all night!
 
 This colorscheme is used for all aspects in these dotfiles, yeeaaaah this aesthetic dotfiles is combined with an aesthetic colorscheme <3
 
@@ -486,6 +536,61 @@ This colorscheme was made by [`ner0z`](https://github.com/ner0z) and modified by
 
 </details>
 
+<!-- Aesthetic Iosevka Font -->
+
+## :bookmark_tabs: ‎ <samp>Fonts</samp>
+
+I have created a Custom Font that based on [Iosevka Custom Build](https://github.com/be5invis/Iosevka/blob/master/doc/custom-build.md), has two variants `Original` and [`Nerd Font`](https://github.com/ryanoasis/nerd-fonts). This font supports ligatures!
+
+This is My Favorite Monospace Font! This font is used in my terminal emulator and all my code editor. Yes, for better Code.
+
+You know what? This Font is absolutely Awesome! If combined with Aesthetic Night Colorscheme!
+
+<b>Font Preview:</b>
+
+- <details>
+  <summary>Regular</summary>
+  <br>
+  <a href="#--------">
+  <img src="https://user-images.githubusercontent.com/93292023/179895783-e4e96572-821c-4684-8b22-886f508d5e8e.png" alt="font preview" width="500px">
+  </a>
+  </details>
+
+- <details>
+  <summary>Italic</summary>
+  <br>
+  <a href="#--------">
+  <img src="https://user-images.githubusercontent.com/93292023/179895825-5dade677-4fc6-4345-a564-719a649c0f2d.png" alt="font preview" width="500px">
+  </a>
+  </details>
+
+<b>Installation:</b>
+
+1. Clone or Download this repository
+2. Change the current directory to `dotfiles/misc/fonts/Aesthetic Iosevka`
+3. Choose the variant you want, or choose both
+4. Take actions depending on your OS:
+   - **Windows**: Select the font files and drag into font [settings](ms-settings:fonts) / font control panel page.
+     - On Windows 10 1809 or newer, the default font installation is per-user, and it may cause compatibility issues for some applications, mostly written in Java. To cope with this, right click and select “Install for all users” instead. [Ref.](https://youtrack.jetbrains.com/issue/JRE-1166?p=IDEA-200145)
+   - **macOS**: [Follow instructions here](http://support.apple.com/kb/HT2509).
+   - **Linux** : Copy the font files to your fonts directory then run `sudo fc-cache`.
+
+<b>Usage:</b>
+
+- Original:
+
+  ```json
+  "editor.fontFamily": "Aesthetic Iosevka Original",
+  "editor.fontLigatures": true,
+  ```
+
+- Nerd Font:
+
+  ```json
+  "editor.fontFamily": "AestheticIosevka Nerd Font",
+  "editor.fontLigatures": true,
+  ```
+
 <!-- GALLERY -->
 
 ## :ocean: ‎ <samp>Gallery</samp>
@@ -526,9 +631,9 @@ This colorscheme was made by [`ner0z`](https://github.com/ner0z) and modified by
 
 ## :japan: ‎ <samp>History</samp>
 
-Ngl this is started when im feel bored lol and decided to start using Linux, more precisely in January 2022. When it's in [Linuxer Desktop Art](https://facebook.com/groups/linuxart) i saw a linux setup that caught my eye, then I'm interested in and trying something similar, So yeaaaaaah this is my current setup, I made this with all Aesthetic I have. Yes! you're right! everything you see here is all about beautiful and aesthetic, and ofc apart from targeting the beautiful UI I also pay attention to the functionality, because I'm targeting an OS that's comfortable to wear and look at. Have a Nice Day! <3
+Ngl is started when I am felt bored lol and decided to start using Linux, more precisely in January 2022. When it's in [Linuxer Desktop Art](https://facebook.com/groups/linuxart) I saw a Linux setup that caught my eye, then I'm interested in and trying something similar, So yeaaaaaah this is my current setup, I made this with all Aesthetic I have. Yes! You are right! Everything you see here is all about beautiful and aesthetic, and ofc apart from targeting the beautiful UI I also pay attention to the functionality, because I'm targeting an OS that's comfortable to wear and look at. Have a Nice Day! <3
 
-I wanna say thank you to those of you who like and love my setup <3
+I wanna say thank you to those of you who like and love my setup. <3
 
 <pre align="center">
 <a href="#japan--history">
@@ -540,7 +645,7 @@ I wanna say thank you to those of you who like and love my setup <3
 
 ## :money_with_wings: ‎ <samp>TIP JAR</samp>
 
-I've ko-fi account, So if you enjoyed it and would like to show your appreciation, you may want to tip me here.
+I have a ko-fi account, so if you enjoyed it and would like to show your appreciation, you may want to tip me here.
 
 It is never required but always appreciated.
 

@@ -8,7 +8,7 @@ set -o pipefail
 |__   |   --|    -|   __|   __| | | |__   |     | | |
 |_____|_____|__|__|_____|_____|_|___|_____|__|__| |_|
 Simple Script To Take Aesthetic Screenshots!
-using scrot, imagemagick, colord and AwesomeWM API
+using maim, imagemagick, colord and AwesomeWM API
 
 @author rxyhn
 https://github.com/rxyhn
@@ -39,7 +39,7 @@ _AUTHOR_COLOR_='#6791c9'
 
 # Get Lists Font With "convert -list font | grep -iE 'font:.*' | nl"
 _FONT_SIZE_=10
-_FONT_='JetBrains-Mono-Medium-Nerd-Font-Complete'
+_FONT_='AestheticIosevka-Nerd-Font-Complete'
 
 # =============================================
 
@@ -201,9 +201,9 @@ then
 elif [ "$1" = 'full' ];
 then
 	msg="Full screenshot saved and copied to clipboard!"
-	main 'scrot -q100' "${msg}"
+	main 'maim -u -m 10' "${msg}"
 elif [ "$1" = 'area' ];
 then
 	msg='Area screenshot saved and copied to clipboard!'
-	main 'scrot -q100 -s -f -b' "${msg}"
+	main 'maim -u -m 10 -s -b 2 -c 0.35,0.55,0.85,0.25 -l' "${msg}"
 fi
