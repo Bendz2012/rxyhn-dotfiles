@@ -56,6 +56,19 @@ local function maximize(c)
 	)
 end
 
+local function floating(c)
+	return decorations.button(
+		c,
+		button_shape,
+		beautiful.xcolor4,
+		button_color_unfocused,
+		beautiful.xcolor12,
+		button_size,
+		button_margin,
+		"floating"
+	)
+end
+
 --- Tabbed
 local bling = require("modules.bling")
 local tabbed_misc = bling.widget.tabbed_misc
@@ -73,6 +86,7 @@ client.connect_signal("request::titlebars", function(c)
 					close(c),
 					minimize(c),
 					maximize(c),
+					floating(c),
 					--- Create some extra padding at the edge
 					helpers.ui.horizontal_pad(dpi(5)),
 					layout = wibox.layout.fixed.horizontal,
