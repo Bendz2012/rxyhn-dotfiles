@@ -40,6 +40,11 @@ client.connect_signal("request::titlebars", function(c)
 							margins = { top = dpi(6), bottom = dpi(6), left = dpi(2), right = dpi(2) },
 							widget = wibox.container.margin,
 						},
+						{
+							awful.titlebar.widget.floatingbutton(c),
+							margins = { top = dpi(6), bottom = dpi(6), left = dpi(2), right = dpi(2) },
+							widget = wibox.container.margin,
+						},
 						layout = wibox.layout.fixed.horizontal,
 					},
 					top = dpi(2),

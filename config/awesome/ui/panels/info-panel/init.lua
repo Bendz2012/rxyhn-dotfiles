@@ -10,8 +10,8 @@ local helpers = require("helpers")
 
 return function(s)
 	--- Date
-	local time_format = "<span font='" .. beautiful.font_name .. "Light 36'> %I:%M </span> "
-	local date_formate = "<span font='" .. beautiful.font_name .. "Bold 12'> %A %B %d </span>"
+	local time_format = "<span font='" .. beautiful.font_name .. "Light 36'> {{@@ time_format @@}} </span> "
+	local date_formate = "<span font='" .. beautiful.font_name .. "Bold 12'> {{@@ date_format @@}} </span>"
 	local time = wibox.container.place(wibox.widget.textclock(time_format, 60))
 	local date = wibox.container.place(wibox.widget.textclock(date_formate, 60))
 

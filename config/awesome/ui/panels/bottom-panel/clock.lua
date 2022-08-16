@@ -10,7 +10,7 @@ return function(s)
 	local accent_color = beautiful.white
 	local clock = wibox.widget({
 		widget = wibox.widget.textclock,
-		format = "%a %b %e %l:%M %p",
+		format = "{{@@ datetime_format @@}}",
 		align = "center",
 		valign = "center",
 		font = beautiful.font_name .. "Medium 12",

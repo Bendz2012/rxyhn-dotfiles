@@ -1,0 +1,55 @@
+dynvariables:
+ weather_api_key: head weather_api_key.txt
+ weather_coords_lat: head weather_coords_lat.txt
+ weather_corrds_long: head weather_coords_lon.txt
+variables:
+  github_username: "Bendz2012"
+  datetime_format: "%a %e %B %H:%M" # bottom left
+  time_format: "%H:%M" # info panel
+  date_format: "%A %d %B" # info panel
+  web_browser: "brave"
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: ./
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
+  longkey: false
+  cmpignore:
+  - '**.log'
+  - 'log'
+  - '.env'
+  upignore:
+  - '**.log'
+  - 'log'
+  - '.env'
+  instignore:
+  - '**.log' 
+  - 'log'
+  - '.env'
+dotfiles:
+  d_awesome:
+    src: config/awesome
+    dst: ~/.config/awesome
+  d_mpd:
+    src: config/mpd
+    dst: ~/.config/mpd
+  d_mpdris2:
+    src: config/mpDris2
+    dst: ~/.config/mpDris2
+  d_ncmpcpp:
+    src: config/ncmpcpp
+    dst: ~/.config/ncmpcpp
+  d_wezterm:
+    src: config/wezterm
+    dst: ~/.config/wezterm
+profiles:
+  default:
+    dotfiles:
+    - d_awesome
+    - d_mpd
+    - d_mpdris2
+    - d_ncmpcpp
+    - d_wezterm
