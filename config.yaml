@@ -4,9 +4,10 @@ dynvariables:
  weather_corrds_long: head weather_coords_lon.txt
 variables:
   github_username: "Bendz2012"
-  datetime_format: "%a %e %B %H:%M" # bottom left
-  time_format: "%H:%M" # info panel
-  date_format: "%A %d %B" # info panel
+  hours_format: "%H"
+  minutes_format: "%M"
+  time_format: "%H:%M"
+  date_format: "%A %d %B"
   web_browser: "brave"
 config:
   backup: true
