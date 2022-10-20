@@ -9,6 +9,7 @@ variables:
   time_format: "%H:%M"
   date_format: "%A %d %B"
   web_browser: "brave"
+  enable_music_notification: "false" # get a notification if a song is playing (true / false)
 config:
   backup: true
   banner: true
